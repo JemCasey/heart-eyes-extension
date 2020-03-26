@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Heart Eyes React for Messenger",
+  "description": "This extension replaces the messenger.com ❤ react with 😍",
+  "version": "0.0.1",
+  "browser_action": {
+    "default_icon": "logo-small-inactive.png",
+    "default_title": "Toggle 😍 for Facebook Messenger"
+  },
+  "icons": {
+    "16": "logo-small-active.png",
+    "48": "logo-small-active.png",
+    "128": "logo-small-active.png"
+  },
+  "content_security_policy": "script-src 'self' 'sha256-sqS5cH5r9sIhALLicpyIw/M/D846Ie7Rra+EV3PeF04='; object-src 'self'",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.facebook.com/*",
+    "<all_urls>",
+    "tabs",
+    "storage",
+    "cookies",
+    "webNavigation",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "scripts": ["app/background.js"]
+  }
+}
