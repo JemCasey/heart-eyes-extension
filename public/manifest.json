@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Heart Eyes React for Messenger",
-  "description": "This extension replaces the messenger.com ❤ react with 😍",
-  "version": "0.0.1",
+  "name": "Custom Reacts for Messenger",
+  "description": "This extension can replace the messenger.com default reacts with custom emojis",
+  "version": "0.0.2",
   "browser_action": {
-    "default_icon": "logo-small-inactive.png",
-    "default_title": "Toggle 😍 for Facebook Messenger"
+    "default_icon": "logo-small-active.png",
+    "default_title": "Change reacts for Facebook Messenger",
+    "default_popup": "popup.html"
   },
   "icons": {
     "16": "logo-small-active.png",

@@ -1,30 +1,10 @@
-var heartEyesActivated;
+var customEmojis;
 
-chrome.browserAction.setTitle({ title: "Toggle 😍 react for Facebook Messenger" });
+chrome.browserAction.setTitle({ title: "Change reacts for Facebook Messenger" });
 
-var updateIcon = function () {
-	if (heartEyesActivated)
-		chrome.browserAction.setIcon({ path: "../logo-small-active.png" });
-	else
-		chrome.browserAction.setIcon({ path: "../logo-small-inactive.png" });
-};
-
-chrome.storage.sync.get("heartEyesActivated", function (obj) {
-	console.log(obj);
-	heartEyesActivated = obj.heartEyesActivated;
-	updateIcon();
+chrome.storage.sync.get("customEmojis", function (obj) {
+	customEmojis = JSON.parse(obj.customEmojis || "{}");
 });
-
-var toggleHeartEyesActivated = function (tab) {
-	heartEyesActivated = !heartEyesActivated;
-
-	chrome.storage.sync.set({ heartEyesActivated: heartEyesActivated }, function () {
-		console.log("😍 react toggled");
-		updateIcon();
-	});
-};
-
-chrome.browserAction.onClicked.addListener(toggleHeartEyesActivated);
 
 (function () {
 	const networkFilters = {
@@ -38,8 +18,8 @@ chrome.browserAction.onClicked.addListener(toggleHeartEyesActivated);
 
 			var requestVariables = JSON.parse(decodeURIComponent(details.url.match(/&variables=(.*)/)[1]));
 
-			if (requestVariables.data.reaction === "❤" && heartEyesActivated) {
-				requestVariables.data.reaction = "😍";
+			if (customEmojis[requestVariables.data.reaction]) {
+				requestVariables.data.reaction = customEmojis[requestVariables.data.reaction];
 				var redirectUrl = details.url.replace(/&variables=(.*)/, '&variables=' + encodeURIComponent(JSON.stringify(requestVariables)))
 
 				return {

@@ -1,4 +1,4 @@
-This Chrome extension replaces the messenger.com ❤ react with 😍
+This Chrome extension can replace the messenger.com default reacts with custom emojis
 
 To use,
 * clone repo and execute "npm install"

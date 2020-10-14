@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style type="text/css">
+        body {
+        min-width: 300px; 
+        max-width: 100%;
+        } 
+
+        .popover-body {
+            height: 100px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .emoji-button {
+            cursor: pointer;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Default</th>
+                <th scope="col">Custom</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+          </table>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
